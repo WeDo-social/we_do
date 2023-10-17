@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:we_do/firebase_options.dart';
 import 'package:we_do/pages/home_page.dart';
 
 final _router = GoRouter(
@@ -11,7 +13,11 @@ final _router = GoRouter(
   ]
 );
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 

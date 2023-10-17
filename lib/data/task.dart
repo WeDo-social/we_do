@@ -8,6 +8,17 @@ class Task with ChangeNotifier {
   })  : _title = title,
         _isDone = isDone;
 
+  factory Task.fromJson(int id, Map<String, dynamic> json) {
+    return Task(
+      id: id,
+      title: '',
+    )..updateFromJson(json);
+  }
+  void updateFromJson(Map<String, dynamic> json) {
+    title = json['title'];
+    isDone = json['isDone'];
+  }
+
   final int id;
 
   String _title;
@@ -22,5 +33,12 @@ class Task with ChangeNotifier {
   set isDone(bool value) {
     _isDone = value;
     notifyListeners();
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'isDone': isDone,
+    };
   }
 }

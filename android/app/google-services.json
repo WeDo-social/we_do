@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650017325533",
+    "project_id": "we-do-flutter",
+    "storage_bucket": "we-do-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650017325533:android:b135a93de2adcf646c7634",
+        "android_client_info": {
+          "package_name": "com.example.we_do"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZWTLfyvHP23CF5xJ1dVXbF5AXyiJVXI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
