@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:we_do/components/task_card.dart';
+import 'package:we_do/data/task.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,11 +9,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('We Do'),
-      ),
-      body: const Center(
-        child: Text('Home Page'),
+      body: CustomScrollView(
+        slivers: [
+          const SliverAppBar(
+            title: Text('We Do'),
+          ),
+          SliverMasonryGrid.count(
+            crossAxisCount: 3,
+            childCount: 100,
+            itemBuilder: (context, index) {
+              return TaskCard(
+                task: Task(
+                  id: index,
+                  title: 'Task $index',
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
