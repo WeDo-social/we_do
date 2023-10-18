@@ -27,6 +27,10 @@ abstract class FirebaseWrapper {
     if (!kIsWeb) {
       // Persist data offline so the app works when offline
       FirebaseDatabase.instance.setPersistenceEnabled(true);
+      FirebaseDatabase.instance.setPersistenceCacheSizeBytes(
+        // 100 MB
+        100 * 1024 * 1024,
+      );
     }
 
     FirebaseAuth.instance.authStateChanges().listen((user) {
