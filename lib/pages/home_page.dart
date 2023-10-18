@@ -4,7 +4,9 @@ import 'package:we_do/components/profile_button.dart';
 import 'package:we_do/components/task_card.dart';
 import 'package:we_do/data/task.dart';
 
+/// The home page containing a list of tasks.
 class HomePage extends StatelessWidget {
+  // ignore: public_member_api_docs
   const HomePage({super.key});
 
   @override

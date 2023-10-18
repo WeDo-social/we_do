@@ -4,7 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:we_do/data/firebase_wrapper.dart';
 
+/// A button that displays the user's profile picture,
+/// or a random icon if the user is not logged in,
+/// and opens the profile page when pressed.
 class ProfileButton extends StatelessWidget {
+  // ignore: public_member_api_docs
   const ProfileButton({super.key});
 
   /// A random "person" icon to use when the user is not logged in

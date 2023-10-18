@@ -25,7 +25,9 @@ void main() async {
   runApp(const MyApp());
 }
 
+/// The root widget of the app.
 class MyApp extends StatelessWidget {
+  // ignore: public_member_api_docs
   const MyApp({super.key});
 
   @override

@@ -5,23 +5,28 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:we_do/data/task.dart';
 
+/// A wrapper around Firebase that handles authentication and data storage.
 abstract class FirebaseWrapper {
   static String? _oldUid;
+  /// The currently logged in user's uid, or null if no user is logged in.
   static final ValueNotifier<String?> uid = ValueNotifier(null)
     ..addListener(() {
       if (uid.value != null) {
         // Keep the user's data synced to the local cache
-        final userRef = FirebaseDatabase.instance.ref('users/${uid.value}');
-        userRef.keepSynced(true);
+        FirebaseDatabase.instance
+            .ref('users/${uid.value}')
+            .keepSynced(true);
       }
 
       if (_oldUid != null) {
         // Clear the old data
-        final oldUserRef = FirebaseDatabase.instance.ref('users/$_oldUid');
-        oldUserRef.keepSynced(false);
+        FirebaseDatabase.instance
+            .ref('users/$_oldUid')
+            .keepSynced(false);
       }
     });
 
+  /// Initializes the Firebase wrapper.
   static void init() {
     if (!kIsWeb) {
       // Persist data offline so the app works when offline
@@ -37,6 +42,7 @@ abstract class FirebaseWrapper {
     });
   }
 
+  /// Writes a task to the database.
   static Future writeTask(Task task) {
     if (uid.value == null) {
       throw Exception('Must be logged in to write a task');
@@ -45,7 +51,11 @@ abstract class FirebaseWrapper {
     return ref.set(task.toJson());
   }
 
-  static StreamSubscription<DatabaseEvent> listenToTask(Task task, String? uid) {
+  /// Listens to changes to a task.
+  static StreamSubscription<DatabaseEvent> listenToTask(
+    Task task,
+    String? uid,
+  ) {
     uid ??= FirebaseWrapper.uid.value;
     if (uid == null) {
       throw Exception('uid is not specified, and no user is logged in');
