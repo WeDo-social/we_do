@@ -6,29 +6,28 @@ import 'package:flutter/material.dart';
 import 'package:we_do/data/task.dart';
 
 abstract class FirebaseWrapper {
-  static final ValueNotifier<String?> uid = ValueNotifier(null);
-
-  static void init() {
-    // Persist data offline so the app works when offline
-    FirebaseDatabase.instance.setPersistenceEnabled(true);
-
-    FirebaseAuth.instance.authStateChanges().listen((user) {
-      if (uid.value == user?.uid) return;
-
-      final String? oldUid = uid.value;
-      uid.value = user?.uid;
-
+  static String? _oldUid;
+  static final ValueNotifier<String?> uid = ValueNotifier(null)
+    ..addListener(() {
       if (uid.value != null) {
         // Keep the user's data synced to the local cache
         final userRef = FirebaseDatabase.instance.ref("users/${uid.value}");
         userRef.keepSynced(true);
       }
 
-      if (oldUid != null) {
+      if (_oldUid != null) {
         // Clear the old data
-        final oldUserRef = FirebaseDatabase.instance.ref("users/$oldUid");
+        final oldUserRef = FirebaseDatabase.instance.ref("users/$_oldUid");
         oldUserRef.keepSynced(false);
       }
+    });
+
+  static void init() {
+    // Persist data offline so the app works when offline
+    FirebaseDatabase.instance.setPersistenceEnabled(true);
+
+    FirebaseAuth.instance.authStateChanges().listen((user) {
+      uid.value = user?.uid;
     });
   }
 
