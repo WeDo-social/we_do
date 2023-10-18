@@ -11,7 +11,7 @@ final _router = GoRouter(
       path: '/',
       builder: (context, state) => const HomePage(),
     ),
-  ]
+  ],
 );
 
 void main() async {

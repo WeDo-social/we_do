@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:we_do/data/task.dart';
 
 abstract class FirebaseWrapper {
@@ -12,13 +11,13 @@ abstract class FirebaseWrapper {
     ..addListener(() {
       if (uid.value != null) {
         // Keep the user's data synced to the local cache
-        final userRef = FirebaseDatabase.instance.ref("users/${uid.value}");
+        final userRef = FirebaseDatabase.instance.ref('users/${uid.value}');
         userRef.keepSynced(true);
       }
 
       if (_oldUid != null) {
         // Clear the old data
-        final oldUserRef = FirebaseDatabase.instance.ref("users/$_oldUid");
+        final oldUserRef = FirebaseDatabase.instance.ref('users/$_oldUid');
         oldUserRef.keepSynced(false);
       }
     });
