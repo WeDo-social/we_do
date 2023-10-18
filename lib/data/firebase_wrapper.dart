@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:we_do/data/task.dart';
 
@@ -23,8 +24,10 @@ abstract class FirebaseWrapper {
     });
 
   static void init() {
-    // Persist data offline so the app works when offline
-    FirebaseDatabase.instance.setPersistenceEnabled(true);
+    if (!kIsWeb) {
+      // Persist data offline so the app works when offline
+      FirebaseDatabase.instance.setPersistenceEnabled(true);
+    }
 
     FirebaseAuth.instance.authStateChanges().listen((user) {
       uid.value = user?.uid;
