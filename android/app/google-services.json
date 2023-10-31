@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "650017325533",
+    "firebase_url": "https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "we-do-flutter",
     "storage_bucket": "we-do-flutter.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:650017325533:android:b135a93de2adcf646c7634",
+        "mobilesdk_app_id": "1:650017325533:android:95dc2f75c6628a5d6c7634",
         "android_client_info": {
           "package_name": "com.adilhanney.we_do"
         }

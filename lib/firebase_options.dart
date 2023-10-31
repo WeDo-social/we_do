@@ -49,32 +49,36 @@ class DefaultFirebaseOptions {
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
     authDomain: 'we-do-flutter.firebaseapp.com',
+    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
     measurementId: 'G-NP3DXJZVJ2',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBZWTLfyvHP23CF5xJ1dVXbF5AXyiJVXI4',
-    appId: '1:650017325533:android:b135a93de2adcf646c7634',
+    appId: '1:650017325533:android:95dc2f75c6628a5d6c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
+    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDSW5wYNaG1pp88OXm2yDrYjIZNsEuZ2U0',
-    appId: '1:650017325533:ios:0f9de7ffd9e348b96c7634',
+    appId: '1:650017325533:ios:a4617ed5afee75126c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
+    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
     iosBundleId: 'com.adilhanney.weDo',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyDSW5wYNaG1pp88OXm2yDrYjIZNsEuZ2U0',
-    appId: '1:650017325533:ios:1c7e3a87394afe406c7634',
+    appId: '1:650017325533:ios:eb61734dd67ad9036c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
+    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
     iosBundleId: 'com.adilhanney.weDo.RunnerTests',
   );
