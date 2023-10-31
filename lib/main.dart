@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:we_do/data/firebase_wrapper.dart';
 import 'package:we_do/firebase_options.dart';
 import 'package:we_do/pages/home_page.dart';
@@ -27,6 +28,11 @@ final _router = GoRouter(
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Logger.root.onRecord.listen((record) {
+    // ignore: avoid_print
+    print('${record.level.name}: ${record.loggerName}: ${record.message}');
+  });
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
+import 'package:logging/logging.dart';
 import 'package:we_do/data/task.dart';
 
 /// A wrapper around Firebase that handles authentication and data storage.
 abstract class FirebaseWrapper {
+  static final log = Logger('FirebaseWrapper');
+
   static String? _oldUid;
 
   /// The currently logged in user's uid, or null if no user is logged in.
@@ -53,7 +56,7 @@ abstract class FirebaseWrapper {
     }
 
     FirebaseAuth.instance.authStateChanges().listen((user) {
-      print('authStateChanges: $user');
+      log.info('auth state change: $user');
       uid.value = user?.uid;
     });
   }
