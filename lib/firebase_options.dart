@@ -49,7 +49,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
     authDomain: 'we-do-flutter.firebaseapp.com',
-    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
     measurementId: 'G-NP3DXJZVJ2',
   );
@@ -59,7 +60,8 @@ class DefaultFirebaseOptions {
     appId: '1:650017325533:android:95dc2f75c6628a5d6c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
-    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
   );
 
@@ -68,7 +70,8 @@ class DefaultFirebaseOptions {
     appId: '1:650017325533:ios:a4617ed5afee75126c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
-    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
     iosBundleId: 'com.adilhanney.weDo',
   );
@@ -78,7 +81,8 @@ class DefaultFirebaseOptions {
     appId: '1:650017325533:ios:eb61734dd67ad9036c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
-    databaseURL: 'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
     iosBundleId: 'com.adilhanney.weDo.RunnerTests',
   );

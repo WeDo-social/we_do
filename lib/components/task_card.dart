@@ -29,7 +29,7 @@ class TaskCard extends StatelessWidget {
               Text(task.title),
             ],
           );
-        }
+        },
       ),
     );
   }

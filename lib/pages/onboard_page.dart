@@ -25,7 +25,7 @@ class OnboardPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            // todo: replace with image
+            // TODO(JoshChadwick): replace with image
             width: 100,
             height: 100,
             decoration: BoxDecoration(
@@ -47,10 +47,10 @@ class OnboardPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          Center(
-            child: const FilledButton(
+          const Center(
+            child: FilledButton(
               onPressed: null,
-              child: const Text('Login/Signup'),
+              child: Text('Login/Signup'),
             ),
           ),
           const SizedBox(height: 4),

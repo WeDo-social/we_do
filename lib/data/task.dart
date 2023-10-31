@@ -17,6 +17,7 @@ class Task with ChangeNotifier {
       title: '',
     )..updateFromJson(json);
   }
+
   /// Updates the task from a JSON map
   void updateFromJson(Map<String, dynamic> json) {
     title = json['title'];
@@ -28,6 +29,7 @@ class Task with ChangeNotifier {
   final int id;
 
   String _title;
+
   /// The task's title
   String get title => _title;
   set title(String value) {
@@ -36,6 +38,7 @@ class Task with ChangeNotifier {
   }
 
   bool _isDone;
+
   /// Whether the task is done
   bool get isDone => _isDone;
   set isDone(bool value) {
