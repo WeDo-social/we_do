@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
     storageBucket: 'we-do-flutter.appspot.com',
-    iosBundleId: 'com.example.weDo',
+    iosBundleId: 'com.adilhanney.weDo',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -76,6 +76,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
     storageBucket: 'we-do-flutter.appspot.com',
-    iosBundleId: 'com.example.weDo.RunnerTests',
+    iosBundleId: 'com.adilhanney.weDo.RunnerTests',
   );
 }

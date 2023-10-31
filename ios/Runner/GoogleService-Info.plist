@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.weDo</string>
+	<string>com.adilhanney.weDo</string>
 	<key>PROJECT_ID</key>
 	<string>we-do-flutter</string>
 	<key>STORAGE_BUCKET</key>
