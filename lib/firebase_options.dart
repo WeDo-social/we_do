@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -78,12 +75,24 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyDSW5wYNaG1pp88OXm2yDrYjIZNsEuZ2U0',
-    appId: '1:650017325533:ios:eb61734dd67ad9036c7634',
+    appId: '1:650017325533:ios:a4617ed5afee75126c7634',
     messagingSenderId: '650017325533',
     projectId: 'we-do-flutter',
     databaseURL:
         'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'we-do-flutter.appspot.com',
-    iosBundleId: 'com.adilhanney.weDo.RunnerTests',
+    iosBundleId: 'com.adilhanney.weDo',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAigmSkwWIpwK1QPRgsFsEBqL9n89ajrPo',
+    appId: '1:650017325533:web:005a7b1097073f1c6c7634',
+    messagingSenderId: '650017325533',
+    projectId: 'we-do-flutter',
+    authDomain: 'we-do-flutter.firebaseapp.com',
+    databaseURL:
+        'https://we-do-flutter-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'we-do-flutter.appspot.com',
+    measurementId: 'G-ZNV2ZQ4HN0',
   );
 }
