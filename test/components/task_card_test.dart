@@ -7,6 +7,9 @@ void main() {
   testWidgets('TaskCard', (tester) async {
     final task = Task(id: 123, title: 'Example task', isDone: false);
     await tester.pumpWidget(MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
       home: TaskCard(task: task),
     ));
 
