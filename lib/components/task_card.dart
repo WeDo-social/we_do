@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:we_do/data/task.dart';
 
 /// A card that displays a [Task].
+/// 
+/// This widget will rebuild when the [task] changes.
 class TaskCard extends StatelessWidget {
   // ignore: public_member_api_docs
   const TaskCard({
