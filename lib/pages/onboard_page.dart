@@ -47,10 +47,10 @@ class OnboardPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          const Center(
+          Center(
             child: FilledButton(
-              onPressed: null,
-              child: Text('Login/Signup'),
+              onPressed: () => context.push('/login'),
+              child: const Text('Login/Signup'),
             ),
           ),
           const SizedBox(height: 4),

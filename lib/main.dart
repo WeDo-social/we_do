@@ -23,6 +23,20 @@ final _router = GoRouter(
         }
       },
     ),
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) {
+        // TODO(JoshChadwick): Make profile page
+        return const Text('/profile not implemented yet');
+      },
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) {
+        // TODO(JoshChadwick): Make login page
+        return const Text('/login not implemented yet');
+      },
+    ),
   ],
 );
 

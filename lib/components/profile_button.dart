@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:we_do/data/firebase_wrapper.dart';
 
 /// A button that displays the user's profile picture,
@@ -35,7 +36,7 @@ class ProfileButton extends StatelessWidget {
               ? Icon(_unknownUserIcon)
               : Text(uid.substring(0, 1).toUpperCase()),
           onPressed: () {
-            // TODO(JoshChadwick): Open profile page
+            context.push('/profile');
           },
         );
       },
