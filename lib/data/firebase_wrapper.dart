@@ -8,24 +8,31 @@ import 'package:we_do/data/task.dart';
 
 /// A wrapper around Firebase that handles authentication and data storage.
 abstract class FirebaseWrapper {
+  // ignore: public_member_api_docs
   static final log = Logger('FirebaseWrapper');
 
-  static String? _oldUid;
+  static User? _oldUser;
 
   /// The currently logged in user's uid, or null if no user is logged in.
-  static final ValueNotifier<String?> uid = ValueNotifier(null)
+  static final ValueNotifier<User?> user = ValueNotifier(null)
     ..addListener(() {
-      loggedIn.value = uid.value != null;
+      loggedIn.value = user.value != null;
 
-      if (uid.value != null && !kIsWeb) {
+      if (user.value != null && !kIsWeb) {
         // Keep the user's data synced to the local cache
-        FirebaseDatabase.instance.ref('users/${uid.value}').keepSynced(true);
+        FirebaseDatabase.instance
+            .ref('users/${user.value!.uid}')
+            .keepSynced(true);
       }
 
-      if (_oldUid != null && !kIsWeb) {
+      if (_oldUser != null && !kIsWeb) {
         // Clear the old data
-        FirebaseDatabase.instance.ref('users/$_oldUid').keepSynced(false);
+        FirebaseDatabase.instance
+            .ref('users/${_oldUser!.uid}')
+            .keepSynced(false);
       }
+
+      _oldUser = user.value;
     });
 
   /// Whether the user is logged in.
@@ -55,19 +62,19 @@ abstract class FirebaseWrapper {
       );
     }
 
-    FirebaseAuth.instance.authStateChanges().listen((user) {
+    FirebaseAuth.instance.userChanges().listen((user) {
       log.info('auth state change: $user');
-      uid.value = user?.uid;
+      FirebaseWrapper.user.value = user;
     });
   }
 
   /// Writes a task to the database.
   static Future writeTask(Task task) {
-    if (uid.value == null) {
+    if (user.value == null) {
       throw Exception('Must be logged in to write a task');
     }
-    final ref =
-        FirebaseDatabase.instance.ref('users/${uid.value}/tasks/${task.id}');
+    final ref = FirebaseDatabase.instance
+        .ref('users/${user.value!.uid}/tasks/${task.id}');
     return ref.set(task.toJson());
   }
 
@@ -76,7 +83,7 @@ abstract class FirebaseWrapper {
     Task task,
     String? uid,
   ) {
-    uid ??= FirebaseWrapper.uid.value;
+    uid ??= user.value?.uid;
     if (uid == null) {
       throw Exception('uid is not specified, and no user is logged in');
     }

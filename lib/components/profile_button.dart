@@ -29,12 +29,12 @@ class ProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: FirebaseWrapper.uid,
-      builder: (context, uid, _) {
+      valueListenable: FirebaseWrapper.user,
+      builder: (context, user, _) {
         return IconButton(
-          icon: uid == null
+          icon: user == null
               ? Icon(_unknownUserIcon)
-              : Text(uid.substring(0, 1).toUpperCase()),
+              : Text(user.uid.substring(0, 1).toUpperCase()),
           onPressed: () {
             context.push('/profile');
           },
